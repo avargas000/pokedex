@@ -15,6 +15,10 @@
       <center>
         <button id="pokedexbutton" > Pokedex </button>
         <div id="content4"> <h1>Ready to Play? </h1></div> <br>
+    <audio controls autoplay>
+        <source src="song.mp3">
+
+        </audio>
       </center>
     </div>
     <br>
@@ -23,16 +27,18 @@
 
       <div class="poke">
         <div id="content"> Charmander</div> <br>
-        <img   id="image1" src="Charmander.jpg" alt="">
+        <img  id="image1" class="Charmander" src="Charmander.png" alt="">
+        <h3 id="stats1">  </h3>
         <div>
-          <button id="fire" class="button1"> Select </button>
+          <button id="fire"> Select </button>
         </div>
 
       </div>
 
       <div class="poke">
         <div id="content2"> Squirtle</div> <br>
-        <img id="image2"  src="squirtle.jpg" alt="">
+        <img id="image2"  src="squirtle.png" alt="">
+        <h3 id="stats2">  </h3>
         <div>
           <button id="water" class="button2"> Select </button>
         </div>
@@ -41,7 +47,7 @@
 
       <div class="poke">
         <div id="content3">  Jigglypuff</div> <br>
-        <img id="image3" src="jigglypuff.jpg" alt="">
+        <img id="image3" src="jigglymuv.png" alt="">
         <div>
           <button id="sleep" class="button3"> Select </button>
         </div>
@@ -49,10 +55,10 @@
       </div>
 
     </div>
- <!-- audio battle instrumetal
- https://www.youtube.com/watch?v=9IfGbB6YSWg -->
 
-    <script src="poke.js">
-    </script>
+
+    <script src="poke.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
   </body>
 </html>

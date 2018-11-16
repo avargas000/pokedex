@@ -17,7 +17,8 @@ HTML {
 .container {
   border: 3px solid red;
   width: auto;
-  height: 240px;
+  height: 300px;
+  margin-bottom: auto;
   background-color: white;
 
 }
@@ -35,16 +36,18 @@ HTML {
   height: 200px;
   display: inline-block;
   position: relative;
-  margin:  10px auto;
+  margin:  20px auto;
   text-align: center;
   left: 13%;
 }
 
 .poke img {
   /* width: 100%; */
+  width: 150px;
   height: 150px;
+  margin:  10px auto;
+  border-radius: 50%;
 }
-
 .button2 {
   /* margin: 20px 0px 0px 345px;
   display: inline-block;
@@ -52,7 +55,12 @@ HTML {
   }
 
 
-
+#stats1{
+  color:#fff;
+  /* width:200px;
+  height:25px; */
+  background-color: rgba(0,0,0, 0.5);
+}
 .button3 {
 /* margin: 0px 0px 50px 550px;
 display: inline-block;

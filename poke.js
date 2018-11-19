@@ -1,5 +1,60 @@
 console.log("Poke-pokemon")
 
+class Pokemon {
+  constructor(name,hp,attack, defense, abilities){
+    this.pokeName = name;
+    this.Hp = hp;
+    this.Attack = attack;
+    this.Defense = defense;
+    this.Abilities = abilities;
+    this.container = document.querySelector(".container");
+    this.element =  document.createElement ("div");
+    this.element.className = ("charman");
+  }
+  display(){
+   pokeinfo = document.createElement("ol");
+   pokeinfo.innerHTML = [this.pokeName,"HP: " + this.Hp,"Attack: " + this.Attack,"Defense: " + this.Defense,"Abilities: " + this.Abilities];
+   this.element.appendChild(pokeinfo);
+   console.log("pleasework");
+   this.container.appendChild(this.element);
+  }
+}
+
+  let pokeinfo;
+  function charmander(){
+    let charmanderURL ="http://fizal.me/pokeapi/api/v2/name/charmander.json";
+    axios.get(charmanderURL)
+      .then(function(response){
+        let abi = response.data.abilities;
+        let all1 = [];
+        for(let i=0;i<abi.length;i++){
+          all1.push(abi[i].ability.name);
+        }
+
+        let concatenate = "";
+        for(let i=0;i<abi.length;i++){
+          concatenate +=all1[i] + " ,";
+        }
+
+        let name = "charmander";
+
+        let hp = response.data.stats[5].base_stat;
+
+        let attack = response.data.stats[4].base_stat;
+
+        let defense = response.data.stats[3].base_stat;
+
+        let charr = new Pokemon(name, hp, attack, defense, concatenate);
+
+        document.getElementById('image3').style.display = "none";
+        document.getElementById('content3').style.display = "none";
+
+        charr.display();
+
+     })
+  }
+
+
 
 let button = document.getElementById('fire');
 let content = document.getElementById('content');
@@ -16,6 +71,7 @@ button.addEventListener('click', function(){
   sleep.style.display = "none"; /*jiggly button*/
   content2.style.display = "none"; /*squirtle txt*/
   content3.style.display = "none";/*jiggly txt*/
+  charmander();
 
 })
 let button2 = document.getElementById('water');
@@ -75,122 +131,65 @@ change.addEventListener('click', function(){
 ;
 
 
-// class Pokemon{
-//   constructor(hp,attack, defense,abilities){
-//     this.hp = hp;
-//     this.name = name;
-//     this.attack = attack;
-//     this.defense = defense;
-//
-//   }
-// }
+
 //
 // class Trainer {
 //   get(all)
 // }
 //***************************CHARMANDER********************/////
-function charResult(){
-let info1 = document.getElementById('image1');
-let idk1 = document.getElementById('stats1');
-let charmander = "http://fizal.me/pokeapi/api/v2/name/charmander.json";
-axios.get(charmander)
-  .then(function(response){
-    let def = response.data.stats["0","3"].base_stat; /*4=attack 3=defense 5=HP*/
-    idk1.innerHTML = def;
-    let charResult = document.createElement('span');
-    let everything = [];
-    for ( let i = 0; i < def.length ;i++){
-      everything.push(def[i].ability.name);
-      charResult = everything;
-      info1.innerHTML=(everything);
-    }
-  })
-}
-//***************************SQUIRTLE********************/////
-function squirtResult(){
-// let info2 = document.getElementById('image2');
-let idk2 = document.getElementById('stats2');
-let squirtle = "http://fizal.me/pokeapi/api/v2/name/squirtle.json";
-axios.get(squirtle)
-  .then(function(response){
-    let def2 = response.data.stats[3].base_stat;
-    idk2.innerHTML = def2;
-    // let char = document.createElement('span');
-    // let everything = [];
-    // for ( let i = 0; i < abi.length ;i++){
-    //   everything.push(abi[i].ability.name);
-    //   char = everything;
-    //   info1.innerHTML=(everything);
-    // }
-  })
-}
-// **************************JIGGLY*************************
-function jigglyResult(){
-let info3 = document.getElementById('image3');
-let idk3 = document.getElementById('stats3');
-let jigglypuff = "http://fizal.me/pokeapi/api/v2/name/jigglypuff.json";
-axios.get(jigglypuff)
-  .then(function(response){
-    let def3 = response.data.stats[3].base_stat;
-    idk3.innerHTML = def3;
+// function charResult(){
+// let info1 = document.getElementById('image1');
+// let idk1 = document.getElementById('stats1');
+// let charmander = "http://fizal.me/pokeapi/api/v2/name/charmander.json";
+// axios.get(charmander)
+//   .then(function(response){
+//     let def = response.data.stats["0","3"].base_stat; /*4=attack 3=defense 5=HP*/
+//     idk1.innerHTML = "Attack" + def ;
+//
+//
+//
+//   })
+// }
+// //***************************SQUIRTLE********************/////
+// function squirtResult(){
+// // let info2 = document.getElementById('image2');
+// let idk2 = document.getElementById('stats2');
+// let squirtle = "http://fizal.me/pokeapi/api/v2/name/squirtle.json";
+// axios.get(squirtle)
+//   .then(function(response){
+//     let def2 = response.data.stats[3].base_stat;
+//     idk2.innerHTML = def2;
+//
+//   })
+// }
+// // **************************JIGGLY*************************
+// function jigglyResult(){
+// let info3 = document.getElementById('image3');
+// let idk3 = document.getElementById('stats3');
+// let jigglypuff = "http://fizal.me/pokeapi/api/v2/name/jigglypuff.json";
+// axios.get(jigglypuff)
+//   .then(function(response){
+//     let def3 = response.data.stats[3].base_stat;
+//     idk3.innerHTML = def3;
+//
+//   document.getElementById("fire").addEventListener("click", charResult);
+//   document.getElementById("water").addEventListener("click", squirtResult);
+//   document.getElementById("sleep").addEventListener("click", jigglyResult);
+// })
+// }
 
-    // let char = document.createElement('span');
-    // let everything = [];
-    // for ( let i = 0; i < abi.length ;i++){
-    //   everything.push(abi[i].ability.name);
-    //   char = everything;
-    //   info1.innerHTML=(everything);
-    // }
-  })
-}
-// let pika = new Pokemon(pikaHP, name, )
-//
-// function mew(){
-// let info2 = document.getElementById('pokemons2');
-// let mew ="http://fizal.me/pokeapi/api/v2/name/mewtwo.json"
-// axios.get(mew)
-//   .then(function mew(response){
-//   let abi2 = response.data.abilities;
-//   let mew = document.createElement('span');
-//   let all2 = [];
-//   for(let i=0;i<abi2.length;i++){
-//     all2.push(abi2[i].ability.name);
-//     // mew = all2;
-//     info2.innerHTML=(all2);
-//     }
-//   })
-// }
-//
-// function snor(){
-// let info3 = document.getElementById('pokemons3')
-// let snorlax ="http://fizal.me/pokeapi/api/v2/name/snorlax.json"
-// axios.get(snorlax)
-//   .then(function snor(response){
-//   let abi3 = response.data.abilities;
-//   let snorlax = document.createElement('span');
-//   let all3 = [];
-//   for(let i=0;i<abi3.length;i++){
-//     all3.push(abi3[i].ability.name);
-//     snorlax = all3;
-//     info3.innerHTML =(all3);
-//     }
-//   })
-// }
-  document.getElementById("fire").addEventListener("click", charResult);
-  document.getElementById("water").addEventListener("click", squirtResult);
-  document.getElementById("sleep").addEventListener("click", jigglyResult);
-  // document.getElementById("mb").addEventListener("click", mew);
-  // document.getElementById("sb").addEventListener("click", snor);
-//
-// class Charmander {
+// class Pokemon {
 //   constructor(Hp,Attack, Defense, Abilities){
 //     this.ClassName = Charmander;
 //     this.Hp = Hp;
 //     this.Attack = Attack;
 //     this.Defense = Defense;
 //     this.Ability = Ability;
-//     this.url = url;
-//     this.
+//     this.container = document.getElementByClassName("container");
+//     this.element =  document.createElement ("div");
+//     this.element.className = ("player");
+
+
 //
 //
 //   };

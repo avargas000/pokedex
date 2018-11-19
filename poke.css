@@ -1,6 +1,6 @@
 .header {
   background-image: url("traina.gif");
-  width: 100%
+  width: 100%;
   height: 700px;
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
@@ -88,7 +88,10 @@ HTML {
 display: inline-block;
 position: absolute; */
 }
-
+ p{
+   text-align: center;
+   font-family: monospace;
+ }
 
 #content {
 

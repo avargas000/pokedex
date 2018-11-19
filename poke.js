@@ -48,7 +48,8 @@ sleep.addEventListener('click', function(){
   image2.style.display = "none"; /*squirtle pic*/
   button2.style.display = "none";  /*squirtle button*/
   content2.style.display = "none"; /*squirtle txt*/
-
+  // stats1.style.display = "none";
+  // stats2.style.display = "none";
 });
 // pokedex trainer button
 let change = document.getElementById('pokedexbutton');
@@ -57,11 +58,9 @@ let blue = document.getElementById('blue');
 // let container = document.getElementByClassName('container');
 change.addEventListener('click', function(){
   content4.innerText = "OH SNAP!";
-  // content4.innerTextSize = "25px" ??
   content4.style.backgroundColor = "orange";
-  // content4.style.display = "block" ??
-  cont.style.backgroundColor = "while";
-  // cont.style.backgroundSize = "cover";
+  cont.style.backgroundImage = "url('blank.jpg')";
+  cont.style.backgroundSize = "cover";
   image2.style.display = "inline-block"; /*squirtle pic*/
   image3.style.display = "inline-block"; /*jiggly pic*/
   button2.style.display = "inline-block";  /*squirtle button*/
@@ -71,6 +70,7 @@ change.addEventListener('click', function(){
   content.style.display = "inline-block"; /*Charmander txt*/
   image1.style.display = "inline-block"; /*Charmander pic*/
   fire.style.display = "inline-block";  /*Charmander button*/
+  // stats2.style.display = "none";
 })
 ;
 
@@ -90,31 +90,31 @@ change.addEventListener('click', function(){
 // }
 //***************************CHARMANDER********************/////
 function charResult(){
-//let info1 = document.getElementById('image1');
+let info1 = document.getElementById('image1');
 let idk1 = document.getElementById('stats1');
 let charmander = "http://fizal.me/pokeapi/api/v2/name/charmander.json";
 axios.get(charmander)
   .then(function(response){
-    let abi = response.data.stats[3].base_stat;
-    idk1.innerHTML = abi;
-    // let char = document.createElement('span');
-    // let everything = [];
-    // for ( let i = 0; i < abi.length ;i++){
-    //   everything.push(abi[i].ability.name);
-    //   char = everything;
-    //   info1.innerHTML=(everything);
-    // }
+    let def = response.data.stats["0","3"].base_stat; /*4=attack 3=defense 5=HP*/
+    idk1.innerHTML = def;
+    let charResult = document.createElement('span');
+    let everything = [];
+    for ( let i = 0; i < def.length ;i++){
+      everything.push(def[i].ability.name);
+      charResult = everything;
+      info1.innerHTML=(everything);
+    }
   })
 }
 //***************************SQUIRTLE********************/////
 function squirtResult(){
-//let info1 = document.getElementById('image1');
+// let info2 = document.getElementById('image2');
 let idk2 = document.getElementById('stats2');
 let squirtle = "http://fizal.me/pokeapi/api/v2/name/squirtle.json";
 axios.get(squirtle)
   .then(function(response){
-    let abi = response.data.stats[3].base_stat;
-    idk1.innerHTML = abi;
+    let def2 = response.data.stats[3].base_stat;
+    idk2.innerHTML = def2;
     // let char = document.createElement('span');
     // let everything = [];
     // for ( let i = 0; i < abi.length ;i++){
@@ -124,7 +124,25 @@ axios.get(squirtle)
     // }
   })
 }
+// **************************JIGGLY*************************
+function jigglyResult(){
+let info3 = document.getElementById('image3');
+let idk3 = document.getElementById('stats3');
+let jigglypuff = "http://fizal.me/pokeapi/api/v2/name/jigglypuff.json";
+axios.get(jigglypuff)
+  .then(function(response){
+    let def3 = response.data.stats[3].base_stat;
+    idk3.innerHTML = def3;
 
+    // let char = document.createElement('span');
+    // let everything = [];
+    // for ( let i = 0; i < abi.length ;i++){
+    //   everything.push(abi[i].ability.name);
+    //   char = everything;
+    //   info1.innerHTML=(everything);
+    // }
+  })
+}
 // let pika = new Pokemon(pikaHP, name, )
 //
 // function mew(){
@@ -160,6 +178,7 @@ axios.get(squirtle)
 // }
   document.getElementById("fire").addEventListener("click", charResult);
   document.getElementById("water").addEventListener("click", squirtResult);
+  document.getElementById("sleep").addEventListener("click", jigglyResult);
   // document.getElementById("mb").addEventListener("click", mew);
   // document.getElementById("sb").addEventListener("click", snor);
 //

@@ -7,15 +7,15 @@ class Pokemon {
     this.Attack = attack;
     this.Defense = defense;
     this.Abilities = abilities;
-    this.container = document.querySelector(".container");
+    this.container = document.querySelector(".charman");
     this.element =  document.createElement ("div");
-    this.element.className = ("charman");
+    this.element.className = ("poke");
   }
   display(){
    pokeinfo = document.createElement("ol");
-   pokeinfo.innerHTML = [this.pokeName,"HP: " + this.Hp,"Attack: " + this.Attack,"Defense: " + this.Defense,"Abilities: " + this.Abilities];
+   pokeinfo.innerHTML = [this.pokeName ," HP: " + this.Hp ," Attack: " + this.Attack ," Defense: " + this.Defense ," Abilities: " + this.Abilities];
    this.element.appendChild(pokeinfo);
-   console.log("pleasework");
+   console.log("pleasework")
    this.container.appendChild(this.element);
   }
 }
@@ -33,7 +33,7 @@ class Pokemon {
 
         let concatenate = "";
         for(let i=0;i<abi.length;i++){
-          concatenate +=all1[i] + " ,";
+          concatenate +=all1[i] + " ";
         }
 
         let name = "charmander";
@@ -53,6 +53,78 @@ class Pokemon {
 
      })
   }
+
+
+console.log("STFU")
+function squirts(){
+  let squirtleURL ="http://fizal.me/pokeapi/api/v2/name/squirtle.json";
+    axios.get(squirtleURL)
+    .then(function squirts(response){
+
+
+
+      let abi2 = response.data.abilities;
+      let all2 = [];
+      for(let i=0;i<abi2.length;i++){
+        all2.push(abi2[i].ability.name);
+      }
+
+      let concatenate = "";
+      for(let i=0;i<abi2.length;i++){
+        concatenate +=all2[i] + " ";
+      }
+
+      let name = "squirtle";
+
+      let hp = response.data.stats[5].base_stat;
+
+      let attack = response.data.stats[4].base_stat;
+
+      let defense = response.data.stats[3].base_stat;
+
+      let squir = new Pokemon(name,hp,attack,defense,concatenate);
+
+      document.getElementById('image3').style.display = "none";
+      document.getElementById('image1').style.display = "none";
+
+      squir.display();
+    })
+}
+
+
+  // function squirts(){
+  //   let squirtleURL ="http://fizal.me/pokeapi/api/v2/name/squirtle.json";
+  //   axios.get(squirtleURL)
+  //     .then(function squirts (response){
+  //       let abi2 = response.data.abilities;
+  //       let all2 = [];
+  //       for(let i=0;i<abi2.length;i++){
+  //         all2.push(abi2[i].ability.name);
+  //
+  //       }
+  //
+  //       let concatenate = "";
+  //       for(let i=0;i<abi2.length;i++){
+  //         concatenate +=all2[i] + " ";
+  //       }
+  //
+  //       let name = "squirtle";
+  //
+  //       let hp = response.data.stats[5].base_stat;
+  //
+  //       let attack = response.data.stats[4].base_stat;
+  //
+  //       let defense = response.data.stats[3].base_stat;
+  //
+  //       let squirt = new Pokemon(name, hp, attack, defense, concatenate);
+
+        // document.getElementById('image3').style.display = "none";
+        // document.getElementById('content3').style.display = "none";
+
+        // squirt.display();
+console.log("STFU2")
+  //    })
+  // }
 
 
 

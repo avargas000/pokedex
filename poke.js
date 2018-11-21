@@ -114,28 +114,16 @@ function squirts(){
       }
 
       let name = "Squirtle";
-
       let hp = response.data.stats[5].base_stat;
-
       let attack = response.data.stats[4].base_stat;
-
       let defense = response.data.stats[3].base_stat;
 
       let squir = new Pokemon(name,hp,attack,defense,concatenate, "stats2");
 
-      // document.getElementById('image3').style.display = "none";
-      // document.getElementById('image1').style.display = "none";
 
       squir.display();
     })
 }
-
-
-
-
-
-
-
 
 let button = document.getElementById('fire');
 let content = document.getElementById('content');
@@ -146,6 +134,7 @@ button.addEventListener('click', function(){
   content.style.backgroundColor = "orange";
   cont.style.backgroundImage = "url('flame.gif')";
   cont.style.backgroundSize = "cover";
+  document.getElementById("image1").src="fmuv.gif";
   image2.style.display = "none"; /*squirtle pic*/
   image3.style.display = "none"; /*jiggly pic*/
   button2.style.display = "none";  /*squirtle button*/
@@ -163,6 +152,8 @@ button2.addEventListener('click', function(){
   content2.style.backgroundColor = "lightskyblue";
   cont.style.backgroundImage = "url('wet.gif')";
   cont.style.backgroundSize = "cover";
+  document.getElementById("image2").src="smuv.gif";
+  // image2.style.image = "url('smuv.gif')" /* MIGHT BE QN ERROR */
   content.style.display = "none"; /*Charmander txt*/
   image.style.display = "none"; /*Charmander pic*/
   button.style.display = "none";  /*Charmander button*/
@@ -179,6 +170,7 @@ sleep.addEventListener('click', function(){
   content3.style.backgroundColor = "gray";
   cont.style.backgroundImage = "url('cloudy.gif')";
   cont.style.backgroundSize = "cover";
+  document.getElementById("image3").src="jmuv.gif";
   content.style.display = "none"; /*Charmander txt*/
   image.style.display = "none"; /*Charmander pic*/
   button.style.display = "none";  /*Charmander button*/
@@ -225,19 +217,21 @@ class Trainer {
    // console.log(it worked! ALL THE WAY DOWN!);
 }
 }
+console.log(window.scrollY);
 
 let someone = new Trainer("Blue", 12, "Non-Binary", "Fights stress");
 console.log(someone);
 
 function startanimation() {
-  let key =  document.getElementById('slider')
-  if (500 <= window.scrollY && 700 >= window.scrollY){
-    key.className = "slider";
-
-
+  let key =  document.getElementById('slider');
+  console.log("I worked")
+    if (195 <= window.scrollY && 843 >= window.scrollY){
+      key.className = "anim";
+    } else {
+      key.className = "";
+    }
 }
 window.addEventListener("scroll", startanimation);
-}
 //
 //
 //   };

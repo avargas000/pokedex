@@ -94,7 +94,7 @@ class Pokemon {
      })
   }
 
-console.log("worked")
+
 function squirts(){
   let squirtleURL ="http://fizal.me/pokeapi/api/v2/name/squirtle.json";
     axios.get(squirtleURL)
@@ -132,7 +132,7 @@ function squirts(){
 
 
 
-console.log("worked2")
+
 
 
 
@@ -229,6 +229,15 @@ class Trainer {
 let someone = new Trainer("Blue", 12, "Non-Binary", "Fights stress");
 console.log(someone);
 
+function startanimation() {
+  let key =  document.getElementById('slider')
+  if (500 <= window.scrollY && 700 >= window.scrollY){
+    key.className = "slider";
+
+
+}
+window.addEventListener("scroll", startanimation);
+}
 //
 //
 //   };

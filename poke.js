@@ -23,7 +23,7 @@ class Pokemon {
 
   let pokeinfo;
   function charmander(){
-    let charmanderURL ="http://fizal.me/pokeapi/api/v2/name/charmander.json";
+    let charmanderURL ="https://fizal.me/pokeapi/api/v2/name/charmander.json";
     axios.get(charmanderURL)
       .then(function(response){
 
@@ -59,7 +59,7 @@ class Pokemon {
   }
 
   function jiggly(){
-    let jigglyURL ="http://fizal.me/pokeapi/api/v2/name/jigglypuff.json";
+    let jigglyURL ="https://fizal.me/pokeapi/api/v2/name/jigglypuff.json";
     axios.get(jigglyURL)
       .then(function(response){
 
@@ -96,7 +96,7 @@ class Pokemon {
 
 
 function squirts(){
-  let squirtleURL ="http://fizal.me/pokeapi/api/v2/name/squirtle.json";
+  let squirtleURL ="https://fizal.me/pokeapi/api/v2/name/squirtle.json";
     axios.get(squirtleURL)
     .then(function(response){
 

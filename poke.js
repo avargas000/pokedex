@@ -1,5 +1,24 @@
 console.log("Poke-pokemon")
 
+class Trainer {
+  constructor(){
+  this.pokemon = [];
+
+  }
+  all(){
+    return this.pokemon;
+  }
+  get(name){
+    for(let i = 0; i < this.pokemon.length; i++){
+      if(name === this.pokemon[i].pokeName){
+        return this.pokemon[i];
+      }
+    }
+  }
+}
+let ana = new Trainer();
+
+
 class Pokemon {
   constructor(name,hp,attack, defense, abilities, statId){
     this.pokeName = name;
@@ -54,6 +73,7 @@ class Pokemon {
         // document.getElementById('content3').style.display = "none";
 
         charr.display();
+        ana.pokemon.push(charr);
 
      })
   }
@@ -75,7 +95,6 @@ class Pokemon {
         for(let i=0;i<abi3.length;i++){
           concatenate +=all3[i] + " ";
         }
-
         let name = "Jigglypuff";
 
         let hp = response.data.stats[5].base_stat;
@@ -88,9 +107,8 @@ class Pokemon {
 
         // document.getElementById('image3').style.display = "none";
         // document.getElementById('content3').style.display = "none";
-
+        ana.pokemon.push(jigglypf);
         jigglypf.display();
-
      })
   }
 
@@ -122,6 +140,7 @@ function squirts(){
 
 
       squir.display();
+      ana.pokemon.push(squir);
     })
 }
 
@@ -207,20 +226,35 @@ change.addEventListener('click', function(){
 ;
 
 
-class Trainer {
-  constructor(name, age, gender, talent){
-    this.name = name;
-    this.age = age;
-    this.gender = gender;
-    this.abilities = talent;
-
-   // console.log(it worked! ALL THE WAY DOWN!);
-}
-}
+// class Trainer {
+//   constructor(){
+//   // (name, age, gender, talent){
+//     this.pokemon=[];
+//     // this.name = name;
+//     // this.age = age;
+//     // this.gender = gender;
+//     // this.abilities = talent;
+//   }
+//   all(){
+//     return this.pokemon;
+// }
+//   add(masters){
+//     this.pokemon.push(masters);
+// }
+//   get(name){
+//     for(let i=0; i<this.pokemon.length; i++){
+//       if(name === this.pokemon[i].name){
+//         return this.pokemon[i];
+//     }
+//   }
+// }
+// }
+// let ana = new Trainer();
 console.log(window.scrollY);
 
-let someone = new Trainer("Blue", 12, "Non-Binary", "Fights stress");
-console.log(someone);
+// let ana = new Trainer();
+// ( "Trainer", "Blue", 12, "Non-Binary", "Fights stress");
+console.log(ana);
 
 function startanimation() {
   let key =  document.getElementById('slider');
